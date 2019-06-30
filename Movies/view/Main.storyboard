@@ -18,12 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="285-Lb-dhV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-KD-gMg">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" id="7V0-QG-F0C">
@@ -43,20 +39,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yPs-KD-gMg" firstAttribute="top" secondItem="egO-io-vyO" secondAttribute="top" id="C2s-ro-3uD"/>
                             <constraint firstItem="yPs-KD-gMg" firstAttribute="leading" secondItem="egO-io-vyO" secondAttribute="leading" id="K46-wG-t7c"/>
-                            <constraint firstItem="285-Lb-dhV" firstAttribute="trailing" secondItem="egO-io-vyO" secondAttribute="trailing" id="Owi-12-Thk"/>
                             <constraint firstItem="yPs-KD-gMg" firstAttribute="trailing" secondItem="egO-io-vyO" secondAttribute="trailing" id="Rwo-Dk-cDX"/>
-                            <constraint firstItem="285-Lb-dhV" firstAttribute="top" secondItem="egO-io-vyO" secondAttribute="top" id="Ygn-jg-6Gt"/>
-                            <constraint firstItem="yPs-KD-gMg" firstAttribute="top" secondItem="285-Lb-dhV" secondAttribute="bottom" id="dCe-gt-TF1"/>
-                            <constraint firstItem="yPs-KD-gMg" firstAttribute="top" secondItem="285-Lb-dhV" secondAttribute="bottom" id="dtn-fe-7Wi"/>
                             <constraint firstItem="yPs-KD-gMg" firstAttribute="bottom" secondItem="egO-io-vyO" secondAttribute="bottom" id="tzD-Al-cyc"/>
-                            <constraint firstItem="285-Lb-dhV" firstAttribute="leading" secondItem="egO-io-vyO" secondAttribute="leading" id="yN0-An-nZ1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="egO-io-vyO"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="cZc-nX-8JA"/>
                     <connections>
-                        <outlet property="searchBar" destination="285-Lb-dhV" id="aWa-cq-IdZ"/>
+                        <outlet property="tableView" destination="yPs-KD-gMg" id="7a2-Sl-imv"/>
                         <segue destination="i8M-ij-xK4" kind="show" identifier="showMovieDetails" id="LqV-gp-fwa"/>
                     </connections>
                 </viewController>
