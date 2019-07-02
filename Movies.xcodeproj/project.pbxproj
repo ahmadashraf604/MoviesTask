@@ -19,12 +19,13 @@
 		DC43EC6822C63C9F0001062B /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43EC6722C63C9F0001062B /* FileService.swift */; };
 		DC43EC6A22C640560001062B /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = DC43EC6922C640560001062B /* movies.json */; };
 		DC60ED2722C582DE00DE4195 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60ED2622C582DE00DE4195 /* AppDelegate.swift */; };
-		DC60ED2922C582DE00DE4195 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60ED2822C582DE00DE4195 /* HomeViewController.swift */; };
 		DC60ED2F22C582DE00DE4195 /* Movies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC60ED2D22C582DE00DE4195 /* Movies.xcdatamodeld */; };
 		DC60ED3122C582DE00DE4195 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC60ED3022C582DE00DE4195 /* Assets.xcassets */; };
 		DC60ED3422C582DE00DE4195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC60ED3222C582DE00DE4195 /* LaunchScreen.storyboard */; };
 		DC60ED3F22C582DE00DE4195 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60ED3E22C582DE00DE4195 /* MoviesTests.swift */; };
 		DC60ED4A22C582DE00DE4195 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60ED4922C582DE00DE4195 /* MoviesUITests.swift */; };
+		DC6C01EE22CA9E9E003A73A6 /* Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C01ED22CA9E9E003A73A6 /* Designable.swift */; };
+		DC6C01F022CAB587003A73A6 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C01EF22CAB587003A73A6 /* HomeTableViewController.swift */; };
 		DC84F49922C7E4C900039A6B /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC84F49822C7E4C900039A6B /* Genre.swift */; };
 		DC84F49B22C7E4C900039A6B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC84F49A22C7E4C900039A6B /* DetailViewController.swift */; };
 		DC84F49D22C8100D00039A6B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC84F49C22C8100D00039A6B /* NetworkService.swift */; };
@@ -68,7 +69,6 @@
 		DC43EC6922C640560001062B /* movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
 		DC60ED2322C582DE00DE4195 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC60ED2622C582DE00DE4195 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC60ED2822C582DE00DE4195 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DC60ED2E22C582DE00DE4195 /* Movies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Movies.xcdatamodel; sourceTree = "<group>"; };
 		DC60ED3022C582DE00DE4195 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC60ED3322C582DE00DE4195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +79,8 @@
 		DC60ED4522C582DE00DE4195 /* MoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC60ED4922C582DE00DE4195 /* MoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUITests.swift; sourceTree = "<group>"; };
 		DC60ED4B22C582DE00DE4195 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC6C01ED22CA9E9E003A73A6 /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
+		DC6C01EF22CAB587003A73A6 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		DC84F49822C7E4C900039A6B /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		DC84F49A22C7E4C900039A6B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		DC84F49C22C8100D00039A6B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -210,10 +212,9 @@
 		DC60ED5722C5972500DE4195 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				DCFE083A22CAD39A0022E981 /* viewController */,
+				DCFE083922CAD3620022E981 /* customViews */,
 				DCFF061022C913FE00913E7D /* Main.storyboard */,
-				DCFF060E22C8E31E00913E7D /* DetailCollectionViewCell.swift */,
-				DC60ED2822C582DE00DE4195 /* HomeViewController.swift */,
-				DC84F49A22C7E4C900039A6B /* DetailViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -245,6 +246,24 @@
 				DC8C09B422C8CB5100564EA4 /* DetailDelegate.swift */,
 			);
 			path = delegation;
+			sourceTree = "<group>";
+		};
+		DCFE083922CAD3620022E981 /* customViews */ = {
+			isa = PBXGroup;
+			children = (
+				DC6C01ED22CA9E9E003A73A6 /* Designable.swift */,
+			);
+			path = customViews;
+			sourceTree = "<group>";
+		};
+		DCFE083A22CAD39A0022E981 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				DCFF060E22C8E31E00913E7D /* DetailCollectionViewCell.swift */,
+				DC84F49A22C7E4C900039A6B /* DetailViewController.swift */,
+				DC6C01EF22CAB587003A73A6 /* HomeTableViewController.swift */,
+			);
+			path = viewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,7 +483,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC1DCFCF22C8AD7D003283E4 /* Photo.swift in Sources */,
-				DC60ED2922C582DE00DE4195 /* HomeViewController.swift in Sources */,
 				DC60ED2F22C582DE00DE4195 /* Movies.xcdatamodeld in Sources */,
 				DC60ED2722C582DE00DE4195 /* AppDelegate.swift in Sources */,
 				DC1DCFCB22C8ACBB003283E4 /* PhotoResponse.swift in Sources */,
@@ -472,8 +490,10 @@
 				DC84F49D22C8100D00039A6B /* NetworkService.swift in Sources */,
 				DC8C09B522C8CB5100564EA4 /* DetailDelegate.swift in Sources */,
 				DCFF060F22C8E31F00913E7D /* DetailCollectionViewCell.swift in Sources */,
+				DC6C01EE22CA9E9E003A73A6 /* Designable.swift in Sources */,
 				DC1DCFCD22C8AD36003283E4 /* PhotosDescription.swift in Sources */,
 				DC43EC6622C63C4D0001062B /* Movie.swift in Sources */,
+				DC6C01F022CAB587003A73A6 /* HomeTableViewController.swift in Sources */,
 				DC43EC6822C63C9F0001062B /* FileService.swift in Sources */,
 				DC1DCFD122C8AF1D003283E4 /* DetailPresenter.swift in Sources */,
 				DC84F49922C7E4C900039A6B /* Genre.swift in Sources */,

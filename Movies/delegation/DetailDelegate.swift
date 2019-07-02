@@ -11,4 +11,6 @@ import Foundation
 protocol DetailDelegate {
     
     func setPhotos(url: [String])
+    
+    func displayNoData()
 }

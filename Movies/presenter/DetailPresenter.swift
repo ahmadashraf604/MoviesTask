@@ -24,7 +24,7 @@ class DetailPresenter {
             let photosUrl = self.getPhotosUrl(photos: photos)
             self.detailDelegate.setPhotos(url: photosUrl)
         }, errorHandler: { error in
-            print(error)
+            self.detailDelegate.displayNoData()
         })
     }
     

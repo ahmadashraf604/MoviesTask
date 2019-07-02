@@ -9,13 +9,14 @@
 import UIKit
 
 class HomeTableViewController: UITableViewController {
-    
+    //   MARK: properties
     var presenter = HomePresenter()
     var movies = [Movie]()
     var resultMovies = [[Movie]]()
     var searchFlage = false
     var detailSegueIdentifier = "showMovieDetails"
     
+    //    MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         if let returnedMovies = presenter.getMovies() {
@@ -25,7 +26,12 @@ class HomeTableViewController: UITableViewController {
         }
         showSearchBar()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.searchController?.searchBar.becomeFirstResponder()
+    }
+    //  MARK: - TableView Configration
     override func numberOfSections(in tableView: UITableView) -> Int {
         // no search
         if !searchFlage {
@@ -72,23 +78,25 @@ class HomeTableViewController: UITableViewController {
         }
         performSegue(withIdentifier: detailSegueIdentifier, sender: movie)
     }
-    
-    func showSearchBar() {
-        let search = UISearchController(searchResultsController: nil)
-        search.searchResultsUpdater = self
-        search.obscuresBackgroundDuringPresentation = false
-        search.hidesNavigationBarDuringPresentation = false
-        search.searchBar.placeholder = "Type something here to search"
-        navigationItem.searchController = search
-    }
-    
+    //  MARK: - navigation control
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == detailSegueIdentifier {
             let detailVC = segue.destination as! DetailViewController
             detailVC.movie = sender as! Movie
         }
     }
-
+    
+    //  MARK: - serch control
+    func showSearchBar() {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.hidesNavigationBarDuringPresentation = false
+        search.isActive = true
+        search.definesPresentationContext = true
+        search.searchBar.placeholder = "Type something here to search"
+        navigationItem.searchController = search
+    }
 }
 
 extension HomeTableViewController: UISearchResultsUpdating {
@@ -97,7 +105,7 @@ extension HomeTableViewController: UISearchResultsUpdating {
         guard let text = searchController.searchBar.text else { return }
         if text.count > 0 {
             searchFlage = true
-            let result = movies.filter({movie in return movie.title.contains(text)}).sorted(by: {$0.rating > $1.rating})
+            let result = movies.filter({movie in return movie.title.lowercased().contains(text.lowercased())}).sorted(by: {$0.rating > $1.rating})
             let category =  result.reduce(into: ([:]), {$0[$1.year, default: 0] += 1})
             resultMovies.removeAll()
             for item in category {

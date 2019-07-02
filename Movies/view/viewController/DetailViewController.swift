@@ -8,8 +8,8 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailDelegate {
-    
+class DetailViewController: UIViewController, DetailDelegate {
+    //    MARK: - properties
     var presenter: DetailPresenter!
     var photosUrl = [String](){
         didSet {
@@ -24,16 +24,19 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             updateView()
         }
     }
-    
+    //    MARK: - IBOutletes
     @IBOutlet weak var posterCollectionView: UICollectionView!
     @IBOutlet weak var castTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var genreTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var posterCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var posterLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var castLabel: UILabel!
     @IBOutlet weak var realseYearLabel: UILabel!
     @IBOutlet weak var genreTableView: UITableView!
     @IBOutlet weak var castTableView: UITableView!
-    
+    // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = DetailPresenter(detailDelegate: self)
@@ -44,11 +47,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewWillAppear(animated)
         presenter.getPhotos(forMovie: movie.title)
     }
+    
     func updateView() {
         if let newMovie = movie {
             titleLabel?.text = newMovie.title
             realseYearLabel?.text = String(newMovie.year)
-            
             self.genreTableView?.reloadData()
             self.genreTableView?.layoutIfNeeded()
             self.genreTableViewHeight?.constant = (self.genreTableView?.contentSize.height)!
@@ -57,6 +60,17 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.castTableViewHeight?.constant = (self.castTableView?.contentSize.height)!
         }
     }
+    //  MARK: - delegation implementation
+    func displayNoData() {
+        posterLabel?.text = "No photos Found for this Movie"
+    }
+    
+    func setPhotos(url: [String]) {
+        photosUrl = url
+    }
+}
+//  MARK: - genre and cast tableView configration
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -85,12 +99,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return UITableViewCell()
         }
     }
-    
-    func setPhotos(url: [String]) {
-        photosUrl = url
-    }
 }
-
+//  MARK: - poster collectionView configration
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
