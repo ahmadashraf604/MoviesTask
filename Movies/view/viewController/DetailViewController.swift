@@ -14,6 +14,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var photosUrl = [String](){
         didSet {
             posterCollectionView.reloadData()
+            self.posterCollectionView?.layoutIfNeeded()
+            self.posterCollectionViewHeight?.constant = (self.posterCollectionView?.contentSize.height)!
         }
     }
     var movie: Movie! {
@@ -26,6 +28,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var posterCollectionView: UICollectionView!
     @IBOutlet weak var castTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var genreTableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var posterCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var realseYearLabel: UILabel!
     @IBOutlet weak var genreTableView: UITableView!
